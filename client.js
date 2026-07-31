@@ -45,7 +45,7 @@ async function search() {
         }
         displaySearch(data);
     } catch (err) {
-        console.log(`Debug>search error: ${err}`);
+        console.log(`Debug>search error: ${err.message}`);
         responses.textContent = 'Error: could not load results.'; //AC4/AC11
     }
 }
@@ -65,6 +65,7 @@ function displaySearch(data) {
 function data_sanitize(v) {
     return DOMPurify.sanitize(typeof v === 'string' ? v : '');
 }
+
 
 function json2htmllist(data) {
     if (!Array.isArray(data) || data.length === 0) return "No cities found"; // AC10/AC11
